@@ -1,5 +1,10 @@
 # NLP Topic Modeling — Developer Skill Analysis
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Stack](https://img.shields.io/badge/Stack-gensim%20%7C%20spaCy%20%7C%20statsmodels-orange)
+
 Automatic classification of technical skills from Stack Overflow posts using
 Latent Dirichlet Allocation (LDA), with downstream econometric analysis of
 skill–wage relationships.

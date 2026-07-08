@@ -103,6 +103,7 @@ def coherence_score(model: LdaModel, tokenized_docs: List[List[str]], dictionary
         texts=tokenized_docs,
         dictionary=dictionary,
         coherence="c_v",
+        processes=1,  # avoid spawning child processes on Windows
     )
     return cm.get_coherence()
 

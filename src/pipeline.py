@@ -1,6 +1,14 @@
 """End-to-end NLP topic modeling pipeline."""
 
+import os
+# Must be set before numpy/gensim are imported to cap OpenBLAS thread pool
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+
 import argparse
+import sys
+sys.path.insert(0, os.path.dirname(__file__))
 import pandas as pd
 from preprocess import preprocess_corpus
 from lda_model import build_corpus, train_lda, coherence_score, tune_topics, print_topics

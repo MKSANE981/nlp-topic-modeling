@@ -10,12 +10,12 @@ Latent Dirichlet Allocation (LDA), with downstream econometric analysis of
 skill–wage relationships.
 
 Developed during a research internship at **CREST (ENSAI)**, 2024.
-Awarded the **highest grade of the cohort** for methodological rigour and originality.
+Awarded the **highest grade of the ENSAI cohort** for this project.
 
 ## Research Question
 
 > How have the most in-demand software developer skills evolved on Stack Overflow
-> between 2015 and 2023, and what is their impact on wages?
+> between 2010 and 2023, and what is their impact on wages?
 
 ## Pipeline
 
@@ -35,11 +35,9 @@ Stack Overflow posts
     (OLS: skill → wage, controlling for experience & location)
 ```
 
-## Key Results
+## Status of this repository
 
-- Identified **12 stable skill clusters** (systems, web, ML/AI, data, mobile…)
-- ML/AI cluster grew from **8% → 23%** of posts between 2018–2023
-- OLS estimates: ML skills carry a **+12–18% wage premium** vs general dev skills (conditional)
+This public repository is a **demonstration of the method** on a small synthetic dataset (80 generated posts, see `data/generate_sample.py`). It does not contain the CREST research data or its results: any number you obtain by running it applies to the demo data only.
 
 ## Tech Stack
 
@@ -93,7 +91,6 @@ analysis.py  →  OLS skill → wage regression
 | **Stemmer, not lemmatizer** | The pipeline uses NLTK `PorterStemmer` instead of spaCy lemmatization. spaCy's `en_core_web_sm` loads PyTorch/thinc, which exhausts Windows virtual memory on constrained machines. PorterStemmer is pure-Python and memory-safe. On a Linux server with enough RAM, replace with spaCy for higher-quality lemmas. |
 | **k=4 hardcoded in demo** | Topics were not tuned on the 80-row sample — the corpus is too small for coherence scores to be meaningful. Run `tune_topics(min_k=2, max_k=10)` on a real corpus (≥500 posts) to let the data select k. |
 | **filter\_extremes thresholds** | `no_below=5` requires a term to appear in at least 5 documents. With only 80 rows, this is a strict filter. Adjust to `no_below=2` on the demo data or leave as-is for real data. |
-| **Key results (CREST internship)** | The results (12 clusters, ML/AI growth 8%→23%) are from the original research on a multi-year Stack Overflow dataset, not from the public demo. |
 
 ## Project Structure
 
